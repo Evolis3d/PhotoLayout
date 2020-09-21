@@ -7,6 +7,7 @@ by **Carlos Lecina**
 * * *
 
 **PhotoLayout** is a set of tools (probably more than one script) that will export your current PSD document to a custom import Unity C# script.
+This script is really a code generator, a custom editor tool that will generate a nested Canvas, filled with all its children.
 
 **Important:** THIS SCRIPT WON'T GENERATE YOUR GRAPHICS. YOU STILL NEED TO EXPORT THEM.
 
@@ -15,6 +16,7 @@ by **Carlos Lecina**
 -   Almost 0 dependencies.
 -   C# import code generation from scratch.
 -   Uses % percentages instead of pixels.
+-   1:1 Replication,
 -   more coming soon...
 
 ### Installation
@@ -25,4 +27,6 @@ Then open Unity3D and execute the Editor script. This will generate the whole Ca
 
 ### Coming Soon
 
-Include the graphic content to the Unity Project...
+- Export all the graphic material into an Atlas Texture...
+- PlaceHolder script generator, auto-assigns as a Component to the Canvas.
+- Naming the elements.

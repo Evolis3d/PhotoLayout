@@ -1,12 +1,11 @@
-// Fichero include con vars y funciones para los scripts de generación de plantillas
+// Fichero include con vars y funciones para los scripts de generaciï¿½n de plantillas
 // ---------------------------
 
 //CONSTS COMUNES PARA LA GENERACION DE PLANTILLAS
-var screenwidth = 1280;
-var screenheight = 720;
+var screenwidth = app.activeDocument.width;
+var screenheight = app.activeDocument.height;
+var docName = "editor_GenerateUI.cs";
 
-var DefaultFolder = "res";
-var DefaultMusic = "BgMusic_Default.mp3";
 
 var enter = "\n";
 var comillas = "\"";
@@ -14,41 +13,38 @@ var antibarra = "\\";
 //CONSTS - FIN
 
 
-function GeneraBackground() {
-	coords += "<background " +enter;
-	coords += "color=" + comillas + "0,0,0" + comillas + enter;
-	coords += ">" + enter;
-      	coords += enter;
+function GeneraHeader() {
+	coords += "using System.Collections;" +enter;
+	coords += "using System.Collections.Generic;" +enter;
+	cooods += "using UnityEngine;" +enter;
+	coords += "using UnityEngine.UI;" +enter;
+	coords += "using UnityEditor;" +enter;
+	coords += enter;
+
+	//
+	coords += "public class editor_genera : MonoBehaviour" +enter;
+	coords += "{" +enter;
+
+	//
+	coords += "[MenuItem("+comillas+"Gamascorpio/GenerateUI"+comillas+")]" +enter;
+	coords += "static void GenerateUI()" +enter;
+	coords += "{" +enter;
+	//context-canvas
+	GenerateCanvas();
+	//endof_context-canvas
+	coords += "}" +enter;
+	coords += enter;
 }
 
-
-function GeneraFondo() {
-      coords += "<image " + enter;
-      coords += "filename=" + comillas + DefaultFolder  + antibarra + "Fondo.jpg" + comillas + enter;
-      coords += "position=" + comillas + "0,0" + comillas + enter;
-      coords += "layer=" + comillas + "1" + comillas + enter;
-      coords += "id=" + comillas + "Fondo" + comillas + enter;
-      coords += "size=" + comillas + screenwidth + "," + screenheight + comillas + enter;
-      coords += ">" + enter;
-      coords += enter;
+function GeneraFoo() {
+	coords +="}" +enter;
+	coords += enter;
 }
 
-
-function GeneraMusic() {
-	coords += "<music " + enter;
-	coords += "filename=" + comillas + DefaultFolder  + antibarra + DefaultMusic + comillas + enter;
-	coords += ">" + enter;
-      	coords += enter;
+function GenerateCanvas()
+{
+	coords += "var nc = new GameObject();" +enter;
 }
 
 
 //   -------------------------------------------------
-//Funcion OPCIONAL para generar los 3 tags de golpe
-
-function GeneraComun() {
-	GeneraBackground();
-	GeneraFondo();
-	GeneraMusic();
-}
-
-//   ----------------------------------------------

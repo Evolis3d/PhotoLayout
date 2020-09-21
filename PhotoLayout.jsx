@@ -1,15 +1,15 @@
-﻿// Concursazo.jsx
+﻿// PhotoLayout.jsx
 // -------------------------------------------------------------------
-// Script que genera en fichero las plantillas de los niveles
-// del Concursazo.
+// Exports layer coords, sizes to a text file
+// for later use in Unity3D
 //
-// Requisitos: Adobe Photoshop CS6
-// Version: 0.2, 26/02/2020
-// Author: Pioj  - piojete@gmail.com
+// Requires: Adobe Photoshop CS6+
+// Version: 0.1, 21/09/2020
+// Author: Carlos Lecina  - programacion@evolis3d.com
 // ===============================================================================
-// USO:
-// 1. Archivo > Secuencia de Comandos > Explorar...
-// 2. Selecciona el archivo Concursazo.jsx , ó el que convenga..
+// USAGE:
+// 1. File > Command Scripts > Explore...
+// 2. Select PhotoLayout.jsx file, and follow the steps...
 // ===============================================================================
 
 // Enables double-click launching from the Mac Finder or Windows Explorer
@@ -34,7 +34,7 @@ var layerRef = app.activeDocument.activeLayer;
 
 //METER AQUI LOS INCLUDES NECESARIOS
 #include "includes/inc_common.jsx";
-#include "includes/inc_Game01.jsx";
+//#include "includes/inc_Game01.jsx";
  //METER AQUI --FIN--
 
 
@@ -112,9 +112,12 @@ function writeFile(info) {
 
 // Run the functions
 //AQUI VA EL EXPORTADO GENERICO
-GeneraComun();
+GeneraHeader();
 //   ----------------
-recurseLayers(docRef);
+recurseLayers(docRef);  // <-- content of every layer
+//   ----------------
+GeneraFoo();
+
 preferences.rulerUnits = defaultRulerUnits; // Set preferences back to user 's defaults
 writeFile(coords);
 
