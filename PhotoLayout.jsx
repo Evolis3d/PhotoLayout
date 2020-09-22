@@ -1,4 +1,4 @@
-﻿// PhotoLayout.jsx
+// PhotoLayout.jsx
 // -------------------------------------------------------------------
 // Exports layer coords, sizes to a text file
 // for later use in Unity3D
@@ -33,7 +33,7 @@ var layerRef = app.activeDocument.activeLayer;
 
 
 //METER AQUI LOS INCLUDES NECESARIOS
-#include "includes/inc_common.jsx";
+#include "inc_common.jsx";
 //#include "includes/inc_Game01.jsx";
  //METER AQUI --FIN--
 
