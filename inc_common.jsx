@@ -31,7 +31,8 @@ function GeneraHeader() {
 	coords += "{" +enter;
 	//context-canvas
 	GenerateCanvas();
-	//endof_context-canvas
+	//innerElements, from PSD layers..
+	
 	coords += "}" +enter;
 	coords += enter;
 }
@@ -43,7 +44,21 @@ function GeneraFoo() {
 
 function GenerateCanvas()
 {
-	coords += "var nc = new GameObject();" +enter;
+	coords += "var nc = new GameObject("+comillas+"Canvas"+comillas+", ";
+		coords += "typeof(Canvas), ";
+		coords += "typeof(CanvasScaler), ";
+		coords += "typeof(GraphicRaycaster), ";
+		coords += "typeof(CanvasGroup) ";
+	coords += ");" +enter;
+	coords += "nc.layer = 5;" +enter;
+	//
+	coords += "nc.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;" +enter;
+	coords += "nc.GetComponent<Canvas>().pixelPerfect = true;" +enter;
+	//
+	coords += "nc.GetComponent<CanvasScaler>().uiScaleMode = ScaleMode.ScaleAndCrop;" +enter;
+	coords += "nc.GetComponent<CanvasScaler>().referenceResolution = new Vector2("+screenwidth+","+screenheight+");" + enter;
+	coords += "nc.GetComponent<CanvasScaler>().match = 1.0f;" +enter;
+	//
 }
 
 

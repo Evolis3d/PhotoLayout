@@ -56,17 +56,18 @@ function recurseLayers(currLayers) {
     w = layerRef.bounds[2].value;
     h = layerRef.bounds[3].value;
 
-    //Bloque para generar los tags desde las capas
-    if (layerRef.name.toUpperCase() == capaQuestion) {
-      GeneraQuestion();
-    }
-    if (layerRef.name.toUpperCase() == capaAnswer1) {
-      GeneraFoto();
-    }
-    if (layerRef.name.toUpperCase() == capaPlayer1) {
-      GeneraCorrecto();
-    }
-    //Fin de Bloque para Question
+
+    //Bloque para generar los tags desde las capas---------------
+    //if (layerRef.name.toUpperCase() == capaQuestion) {
+    //  GeneraQuestion();
+    //}
+    //if (layerRef.name.toUpperCase() == capaAnswer1) {
+    //  GeneraFoto();
+    //}
+    //if (layerRef.name.toUpperCase() == capaPlayer1) {
+    //  GeneraCorrecto();
+    //}
+    //Fin de Bloque para Question----------------------------------
 
 
 
@@ -126,5 +127,5 @@ writeFile(coords);
 if (FPath == null) {
   alert("Export aborted", "Canceled");
 } else {
-  alert("Exportados " + layerNum + " elementos con exito en " + FPath + "/" + docName);
+  alert("Exported " + layerNum + " elements successfully to " + FPath + "/" + docName);
 }
