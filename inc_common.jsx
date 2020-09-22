@@ -57,7 +57,7 @@ function GenerateCanvas()
 	//
 	coords += "nc.GetComponent<CanvasScaler>().uiScaleMode = ScaleMode.ScaleAndCrop;" +enter;
 	coords += "nc.GetComponent<CanvasScaler>().referenceResolution = new Vector2("+screenwidth+","+screenheight+");" + enter;
-	coords += "nc.GetComponent<CanvasScaler>().match = 1.0f;" +enter;
+	coords += "nc.GetComponent<CanvasScaler>().matchWidthOrHeight = 1.0f;" +enter;
 	//
 }
 
