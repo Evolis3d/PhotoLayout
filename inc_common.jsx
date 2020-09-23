@@ -71,6 +71,8 @@ function GenerateElement() {
   coords += ");" + enter;
   coords += "el.transform.setParent(CanvasRoot.transform);" + enter;
   //
+  coords += "el.GetComponent<RectTransform>()." +enter;
+  //
   coords += "}" + enter;
   coords += enter;
 }
