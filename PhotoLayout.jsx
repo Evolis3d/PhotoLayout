@@ -13,7 +13,8 @@
 // ===============================================================================
 
 // Enables double-click launching from the Mac Finder or Windows Explorer
-#target photoshop
+#
+target photoshop
 
 // Bring application forward
 app.bringToFront();
@@ -34,8 +35,8 @@ var layerRef = app.activeDocument.activeLayer;
 
 //METER AQUI LOS INCLUDES NECESARIOS
 #include "inc_common.jsx";
-//#include "includes/inc_Game01.jsx";
- //METER AQUI --FIN--
+ //#include "includes/inc_Game01.jsx";
+//METER AQUI --FIN--
 
 
 // Define varibles for x and y of layers
@@ -58,6 +59,11 @@ function recurseLayers(currLayers) {
 
 
     //Bloque para generar los tags desde las capas---------------
+    if (layerRef.visible == true) {
+      if (layerRef.isBackgroundLayer == true) {
+        GenerateElement();
+      }
+    }
     //if (layerRef.name.toUpperCase() == capaQuestion) {
     //  GeneraQuestion();
     //}
@@ -115,7 +121,7 @@ function writeFile(info) {
 //AQUI VA EL EXPORTADO GENERICO
 GeneraHeader();
 //   ----------------
-recurseLayers(docRef);  // <-- content of every layer
+recurseLayers(docRef); // <-- content of every layer
 //   ----------------
 GeneraFoo();
 
