@@ -13,8 +13,7 @@
 // ===============================================================================
 
 // Enables double-click launching from the Mac Finder or Windows Explorer
-#
-target photoshop
+#target photoshop
 
 // Bring application forward
 app.bringToFront();

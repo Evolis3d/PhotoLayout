@@ -3,7 +3,9 @@
 
 //CONSTS COMUNES PARA LA GENERACION DE PLANTILLAS
 var screenwidth = app.activeDocument.width;
+screenwidth = parseInt(screenwidth);
 var screenheight = app.activeDocument.height;
+screenheight = parseInt(screenheight);
 var docName = "editor_GenerateUI.cs";
 
 
@@ -22,9 +24,9 @@ function GeneraHeader() {
   coords += enter;
 
   //
-  coords += "public class editor_genera : MonoBehaviour" + enter;
+  coords += "public class editor_GenerateUI : MonoBehaviour" + enter;
   coords += "{" + enter;
-  coords += "GameObject CanvasRoot;"
+  coords += "static GameObject CanvasRoot;"
   coords += enter;
   //
   coords += "[MenuItem(" + comillas + "Gamascorpio/GenerateUI" + comillas + ")]" + enter;
@@ -51,6 +53,7 @@ function GenerateCanvas() {
   coords += "typeof(GraphicRaycaster), ";
   coords += "typeof(CanvasGroup) ";
   coords += ");" + enter;
+  coords += "CanvasRoot.transform.position = Vector3.zero;" + enter;
   coords += "CanvasRoot.layer = 5;" + enter;
   //
   coords += "CanvasRoot.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;" + enter;
@@ -63,15 +66,18 @@ function GenerateCanvas() {
 }
 
 function GenerateElement() {
-  coords += "private void GenerateInnerUI()" + enter;
+  coords += "static private void GenerateInnerUI()" + enter;
   coords += "{" + enter;
   //
   coords += "var el = new GameObject(" + comillas + layerRef.name + comillas + ", ";
   coords += "typeof(Image) ";
   coords += ");" + enter;
-  coords += "el.transform.setParent(CanvasRoot.transform);" + enter;
+  coords += "el.transform.SetParent(CanvasRoot.transform);" + enter;
   //
-  coords += "el.GetComponent<RectTransform>()." +enter;
+  coords += "el.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;" + enter;
+  coords += "el.GetComponent<RectTransform>().anchorMin = Vector2.zero;" + enter;
+  coords += "el.GetComponent<RectTransform>().anchorMax = Vector2.one;" + enter;
+  coords += "el.GetComponent<RectTransform>().sizeDelta = Vector2.zero;" + enter;
   //
   coords += "}" + enter;
   coords += enter;
