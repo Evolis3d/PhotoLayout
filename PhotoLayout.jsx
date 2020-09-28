@@ -43,6 +43,7 @@ var x = layerRef.bounds[0].value;
 var y = layerRef.bounds[1].value;
 var w = layerRef.bounds[2].value;
 var h = layerRef.bounds[3].value;
+
 var coords = "";
 
 // Loop to iterate through all layers
@@ -51,17 +52,21 @@ function recurseLayers(currLayers) {
     layerRef = currLayers.layers[i];
 
     x = layerRef.bounds[0].value;
+    x = parseInt(x);
     y = layerRef.bounds[1].value;
+    y = parseInt(y);
 
     w = layerRef.bounds[2].value;
+    w = parseInt(w);
     h = layerRef.bounds[3].value;
+    h = parseInt(h);
 
 
     //Bloque para generar los tags desde las capas---------------
     if (layerRef.visible == true) {
-      if (layerRef.isBackgroundLayer == true) {
-        GenerateElement();
-      }
+      //if (layerRef.isBackgroundLayer == true) {
+      GenerateElement();
+      //}
     }
     //if (layerRef.name.toUpperCase() == capaQuestion) {
     //  GeneraQuestion();
