@@ -41,9 +41,16 @@ function GeneraHeader() {
   //
   coords += "}" + enter;
   coords += enter;
+  coords += enter;
+  coords += "static private void GenerateInnerUI()" + enter;
+  coords += "{" + enter;
+  coords += "GameObject el;" + enter;
 }
 
 function GeneraFoo() {
+  coords += "}" + enter;
+  coords += enter;
+  //
   coords += "}" + enter;
   coords += enter;
 }
@@ -68,10 +75,8 @@ function GenerateCanvas() {
 }
 
 function GenerateElement() {
-  coords += "static private void GenerateInnerUI()" + enter;
-  coords += "{" + enter;
   //
-  coords += tabs + "var el = new GameObject(" + comillas + layerRef.name + comillas + ", ";
+  coords += tabs + "el = new GameObject(" + comillas + layerRef.name + comillas + ", ";
   coords += "typeof(Image) ";
   coords += ");" + enter;
   coords += tabs + "el.transform.SetParent(CanvasRoot.transform);" + enter;
@@ -81,8 +86,6 @@ function GenerateElement() {
   GenerateElement2();
   coords += tabs + "el.GetComponent<RectTransform>().sizeDelta = Vector2.zero;" + enter;
   //
-  coords += "}" + enter;
-  coords += enter;
 }
 
 //   -------------------------------------------------
@@ -98,15 +101,7 @@ function GenerateElement2() {
   var ymax = (screenheight - y + h) / screenheight;
   ymax = (ymax).toFixed(3);
   //
-  coords += "popo: " + x + enter;
-  coords += "popo: " + y + enter;
-  coords += "popo: " + w + enter;
-  coords += "popo: " + h + enter;
-  coords += "popo: " + xmin + enter;
-  coords += "popo: " + ymax + enter;
-  coords += enter;
-
-  coords += tabs + "el.GetComponent<RectTransform>().anchorMin = Vector2.zero;" + enter;
-  coords += tabs + "el.GetComponent<RectTransform>().anchorMax = Vector2.one;" + enter;
+  coords += tabs + "el.GetComponent<RectTransform>().anchorMin = new Vector2(" + xmin + decimal + "," + ymin + decimal + ");" + enter;
+  coords += tabs + "el.GetComponent<RectTransform>().anchorMax = new Vector2(" + xmax + decimal + "," + ymax + decimal + ");" + enter;
   //
 }
