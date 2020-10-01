@@ -39,10 +39,12 @@ var layerRef = app.activeDocument.activeLayer;
 
 
 // Define varibles for x and y of layers
-var x = layerRef.bounds[0].value;
-var y = layerRef.bounds[1].value;
-var w = layerRef.bounds[2].value;
-var h = layerRef.bounds[3].value;
+var xmin = layerRef.bounds[0].value;
+var ymin = layerRef.bounds[1].value;
+var xmax = layerRef.bounds[2].value;
+var ymax = layerRef.bounds[3].value;
+var w = xmin + xmax;
+var h = ymin + ymax;
 
 var coords = "";
 
@@ -51,15 +53,18 @@ function recurseLayers(currLayers) {
   for (var i = 0; i < currLayers.layers.length; i++) {
     layerRef = currLayers.layers[i];
 
-    x = layerRef.bounds[0].value;
-    x = parseInt(x);
-    y = layerRef.bounds[1].value;
-    y = parseInt(y);
+    xmin = layerRef.bounds[0].value;
+    xmin = parseInt(xmin);
+    ymin = layerRef.bounds[1].value;
+    ymin = parseInt(ymin);
 
-    w = layerRef.bounds[2].value;
-    w = parseInt(w);
-    h = layerRef.bounds[3].value;
-    h = parseInt(h);
+    xmax = layerRef.bounds[2].value;
+    xman = parseInt(xmax);
+    ymax = layerRef.bounds[3].value;
+    ymax = parseInt(ymax);
+
+    w = xmin + xmax;
+    h = ymin + ymax;
 
 
     //Bloque para generar los tags desde las capas---------------

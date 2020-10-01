@@ -18,11 +18,16 @@ var decimal = "f ";
 
 
 function GeneraHeader() {
+  coords += enter;
+  coords += "//REMEMBER: This script is self-generated and ONE-USE only!. You may want to remove it from your Project later..." + enter;
+  coords += "//TEMPORAL FIX: Please, include the UnityEngine; line to this code by yourself, in case it's not there..." + enter;
+  coords += enter;
+  coords += enter;
   coords += "using System.Collections;" + enter;
   coords += "using System.Collections.Generic;" + enter;
+  cooods += "using UnityEngine;" + enter;
   coords += "using UnityEngine.UI;" + enter;
   coords += "using UnityEditor;" + enter;
-  cooods += "using UnityEngine;" + enter;
   coords += enter;
 
   //
@@ -76,6 +81,7 @@ function GenerateCanvas() {
 
 function GenerateElement() {
   //
+  coords += enter;
   coords += tabs + "el = new GameObject(" + comillas + layerRef.name + comillas + ", ";
   coords += "typeof(Image) ";
   coords += ");" + enter;
@@ -86,22 +92,31 @@ function GenerateElement() {
   GenerateElement2();
   coords += tabs + "el.GetComponent<RectTransform>().sizeDelta = Vector2.zero;" + enter;
   //
+  if (layerRef.isBackgroundLayer) {
+    coords += tabs + "el.GetComponent<Image>().color = Color.white;" + enter;
+  } else {
+    coords += tabs + "el.GetComponent<Image>().color = Color.red;" + enter;
+  }
+  //
+  coords += tabs + "el.transform.SetSiblingIndex(0);" + enter;
+  //
 }
 
 //   -------------------------------------------------
 
 function GenerateElement2() {
   //
-  var xmin = x / screenwidth;
-  xmin = (xmin).toFixed(3);
-  var xmax = (x + w) / screenwidth;
-  xmax = (xmax).toFixed(3);
-  var ymin = (screenheight - y) / screenheight;
-  ymin = (ymin).toFixed(3);
-  var ymax = (screenheight - y + h) / screenheight;
-  ymax = (ymax).toFixed(3);
+  var xminu = xmin / screenwidth;
+  xminu = (xminu).toFixed(3);
+  var xmaxu = xmax / screenwidth;
+  xmaxu = (xmaxu).toFixed(3);
+  var yminu = (screenheight - ymin) / screenheight;
+  yminu = (yminu).toFixed(3);
+  var ymaxu = (screenheight - ymax) / screenheight;
+  ymaxu = (ymaxu).toFixed(3);
   //
-  coords += tabs + "el.GetComponent<RectTransform>().anchorMin = new Vector2(" + xmin + decimal + "," + ymin + decimal + ");" + enter;
-  coords += tabs + "el.GetComponent<RectTransform>().anchorMax = new Vector2(" + xmax + decimal + "," + ymax + decimal + ");" + enter;
+  coords += enter;
+  coords += tabs + "el.GetComponent<RectTransform>().anchorMin = new Vector2(" + xminu + decimal + "," + ymaxu + decimal + ");" + enter;
+  coords += tabs + "el.GetComponent<RectTransform>().anchorMax = new Vector2(" + xmaxu + decimal + "," + yminu + decimal + ");" + enter;
   //
 }
