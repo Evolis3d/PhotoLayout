@@ -14,6 +14,7 @@ The order of the elements is reversed so it matches the one from your PSD docume
 **Important:** THIS SCRIPT WON'T GENERATE YOUR GRAPHICS. YOU STILL NEED TO EXPORT THEM.
 
 
+![Example](http://prntscr.com/ur2gxj)
 
 
 ### Features
