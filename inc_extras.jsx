@@ -18,7 +18,6 @@ function GeneraController() {
 
   //2. the script..
   coords += enter;
-  coords += "//REMEMBER: This script is self-generated and ONE-USE only!. You may want to remove it from your Project later..." + enter;
   coords += "//TEMPORAL FIX: Please, include the UnityEngine; line to this code by yourself, in case it's not there..." + enter;
   coords += enter;
   coords += enter;
@@ -33,11 +32,17 @@ function GeneraController() {
   coords += "public class UIController : MonoBehaviour" + enter;
   coords += "{" + enter;
 
-  //each layer avaiable
+  //
+  coords += tabs + "public Canvas canv;" + enter;
+  coords += tabs + "private CanvasGroup canvGroup;" + enter;
+  coords += enter;
+  coords += tabs + "[Header(" + comillas + "UI Elements" + comillas + ")]" + enter;
+
+  //each layer avaiable. NOTE: This is common type variables, I won't specify data type for them...
   for (var i = 0; i < app.activeDocument.layers.length; i++) {
     layerRef = app.activeDocument.layers[i];
     if (layerRef.visible == true) {
-      coords += tabs + "public Image " + layerRef.name + ";" + enter;
+      coords += tabs + "public GameObject " + layerRef.name + ";" + enter;
     }
   }
   //
