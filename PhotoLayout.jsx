@@ -34,8 +34,8 @@ var layerRef = app.activeDocument.activeLayer;
 
 //METER AQUI LOS INCLUDES NECESARIOS
 #include "inc_common.jsx";
- //#include "includes/inc_Game01.jsx";
-//METER AQUI --FIN--
+#include "inc_extras.jsx";
+ //METER AQUI --FIN--
 
 
 // Define varibles for x and y of layers
@@ -137,6 +137,10 @@ GeneraFoo();
 preferences.rulerUnits = defaultRulerUnits; // Set preferences back to user 's defaults
 writeFile(coords);
 
+// inc_extras features
+GeneraController();
+writeFile(coords);
+// -------------
 
 // Show results
 if (FPath == null) {

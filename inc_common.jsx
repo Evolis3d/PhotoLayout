@@ -1,4 +1,4 @@
-// Fichero include con vars y funciones para los scripts de generaci�n de plantillas
+// Main functionality feature: Generate Canvas script from PSD Layers
 // ---------------------------
 
 //CONSTS COMUNES PARA LA GENERACION DE PLANTILLAS

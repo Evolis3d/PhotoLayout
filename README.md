@@ -19,17 +19,18 @@ The order of the elements is reversed so it matches the one from your PSD docume
 
 ### Features
 
--   Almost 0 dependencies.
+-   0 dependencies, just the export scripts.
 -   Modular, so it can be extended in the future. 
 -   C# code generation from scratch, zero, nada.
 -   Uses % percentages and RectTransform' Anchors instead of pixels.
 -   1:1 Replication _(WYSIWYG)_
 -   Basic colors for each UI element.
+-   **Extra!** Generates a UIController script. _(if you ever needed one...)_ 
 -   more coming soon...
 
 ### Installation
 
-Just run the included .jsx script in Photoshop to generate the .cs file. When asked, point to your _Project\Assets\Editor_ folder.
+Just run the included **PhotoLayout.jsx** script in Photoshop to generate the .cs file. When asked, point to your _Project\Assets\Editor_ folder.
 
 Then open Unity3D and execute the Editor script. This will generate the whole Canvas hierarchy and place every item in the Canvas.
 
@@ -40,11 +41,11 @@ There's some weird bug that prevents the line **"using UnityEngine;"** for being
 _(I'm working on it!)_
 
 ### Coming Soon
-- Extra component: UIController script generator. _Manage your UI elements..._
-- Layer Groups.
 - Accurate coloring for UI elements.
+- Layer Groups.
 - Text Layers → TextMeshPRO conversion support.
 - More align features _(I hope so...)_
+- Code clean-up & reorganization _(it's a mess! XD)_
 
 ### Deprecated
 - Export & pack all graphics into a TextureAtlas. _(2D PSD Importer package already does that)_
