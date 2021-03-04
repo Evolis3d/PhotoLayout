@@ -7,7 +7,7 @@ by **Carlos Lecina**
 * * *
 
 **PhotoLayout** is a set of tools _(probably more than one script)_ that will export your current PSD document to a self-generated, custom Unity C# script.
-This script is really a GUI generator and composer, a custom editor tool that will created a nested Canvas from scratch, filled with all its children.
+This script is really a GUI generator and composer, a custom editor tool that will create a nested Canvas from scratch, filled with all its children.
 
 The order of the elements is reversed so it matches the one from your PSD document.
 
@@ -25,7 +25,7 @@ The order of the elements is reversed so it matches the one from your PSD docume
 -   Uses % percentages and RectTransform' Anchors instead of pixels.
 -   1:1 Replication _(WYSIWYG)_
 -   Basic colors for each UI element.
--   **Extra!** Generates a UIController script. _(if you ever needed one...)_ 
+-   **Extra!** Generates a UIController script. _(if you'll ever need one...)_ 
 -   more coming soon...
 
 ### Installation
