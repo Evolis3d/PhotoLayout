@@ -95,7 +95,12 @@ function GenerateElement() {
   if (layerRef.isBackgroundLayer) {
     coords += tabs + "el.GetComponent<Image>().color = Color.white;" + enter;
   } else {
-    coords += tabs + "el.GetComponent<Image>().color = Color.red;" + enter;
+    var redCol = Math.floor(Math.random() * 256);
+    var greCol = Math.floor(Math.random() * 256);
+    var bluCol = Math.floor(Math.random() * 256);
+
+    //coords += tabs + "el.GetComponent<Image>().color = Color.red;" + enter;
+    coords += tabs + "el.GetComponent<Image>().color = new Color32(" + redCol + "," + greCol + "," + bluCol + ",255);" + enter;
   }
   //
   coords += tabs + "el.transform.SetSiblingIndex(0);" + enter;
