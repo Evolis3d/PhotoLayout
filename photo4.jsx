@@ -1,5 +1,4 @@
-#
-target photoshop;
+#target photoshop;
 
 
 //GLOBALS DOCUMENT
@@ -37,7 +36,7 @@ var decimal = "f ";
 var alert_cs6mode = "Photoshop CS6 or previous detected. Random Colors: ON, Add Controls:ON";
 var alert_ccmode = "Photoshop CC or next detected. All features ON";
 
-var OPTIONS_RANDOMCOLORS = true;
+var OPTIONS_RANDOMCOLORS = false;
 var OPTIONS_ADDCONTROLS = false;
 var OPTIONS_PATH = null;
 
@@ -51,6 +50,7 @@ function Main() {
   if (numversion < 14) {
     alert(alert_cs6mode);
     SetPath();
+    Generate();
     //FinalCheck();
   }
   //if numversion >13 , es que usamos una versión CC más nueva...
@@ -112,13 +112,19 @@ function ShowGUI() {
   statictext1.text = "Export Path:";
 
   var edittext1 = group1.add('edittext {properties: {name: "edittext1"}}');
-  edittext1.text = "EditText";
+  edittext1.text = "(none)";
   edittext1.preferredSize.width = 150;
 
   var button1 = group1.add("button", undefined, undefined, {
     name: "button1"
   });
   button1.text = "...";
+
+  button1.onClick = function () {
+    SetPath();
+    edittext1.text = OPTIONS_PATH;
+  }
+
 
   var divider2 = dialog.add("panel", undefined, undefined, {
     name: "divider2"
@@ -130,12 +136,14 @@ function ShowGUI() {
   });
   checkbox1.helpTip = "Every layer will have its own color";
   checkbox1.text = "Use Random Colors";
+  OPTIONS_RANDOMCOLORS = checkbox1.value;
 
   var checkbox2 = dialog.add("checkbox", undefined, undefined, {
     name: "checkbox2"
   });
   checkbox2.helpTip = "Convert btn_ to Button, txt_ for TextMeshPro";
   checkbox2.text = "Generate Extras";
+  OPTIONS_ADDCONTROLS = checkbox2.value;
 
   var divider3 = dialog.add("panel", undefined, undefined, {
     name: "divider3"
@@ -148,8 +156,23 @@ function ShowGUI() {
   button2.text = "Export";
   button2.alignment = ["center", "top"];
 
+  button2.onClick = function () {
+      if (OPTIONS_PATH == null) {
+        alert("Error! File path not specified!");
+      }
+      else {
+        Generate();
+      }
+  }
+
   //llamada
   dialog.show();
+}
+
+
+function Generate()
+{
+  //cosas
 }
 
 
@@ -206,4 +229,21 @@ function GenerateCanvas() {
   coords += tabs + "CanvasRoot.GetComponent<CanvasScaler>().referenceResolution = new Vector2(" + screenwidth + "," + screenheight + ");" + enter;
   coords += tabs + "CanvasRoot.GetComponent<CanvasScaler>().matchWidthOrHeight = 1.0f;" + enter;
   //
+}
+
+function GeneraFoo() {
+  coords += "}" + enter;
+  coords += enter;
+  //
+  coords += "}" + enter;
+  coords += enter;
+}
+
+function getLayerColour() {
+  //Colours returned ....
+  // "none","red","orange","yellowColor","grain","blue","violet","gray"
+  var ref = new ActionReference();
+  ref.putEnumerated( charIDToTypeID("Lyr "), charIDToTypeID("Ordn"), charIDToTypeID("Trgt") );
+  var appDesc = executeActionGet(ref);
+  return typeIDToStringID(appDesc.getEnumerationValue(stringIDToTypeID('color')) );
 }
