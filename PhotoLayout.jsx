@@ -225,7 +225,7 @@ function GenerateElement(miLayer) {
   //
   coords += enter;
   if (isTrueText(miLayer)) {
-    coords += tabs + "el = new GameObject(" + comillas + "text_" + miLayer.name + comillas + ",";
+    coords += tabs + "el = new GameObject(" + comillas + "text_" + miLayer.name.replace(/\s/g, '') + comillas + ", ";
   } else {
     coords += tabs + "el = new GameObject(" + comillas + miLayer.name + comillas + ", ";
   }
@@ -250,7 +250,7 @@ function GenerateElement(miLayer) {
   coords += tabs + "el.GetComponent<RectTransform>().sizeDelta = Vector2.zero;" + enter;
   //ALIGN
   if (isTrueText(miLayer)) {
-    coords += tabs + "el.GetComponent<TMP_Text>().text = " + texContents + ";" + enter;
+    coords += tabs + "el.GetComponent<TMP_Text>().text = " + comillas + texContents + comillas + ";" + enter;
     coords += tabs + "el.GetComponent<TMP_Text>().enableAutoSizing = true;" + enter;
     coords += tabs + "el.GetComponent<TMP_Text>().alignment = " + convertAlignment(alignText) + ";" + enter;
   }
@@ -406,7 +406,7 @@ function GeneraController() {
     layerRef = app.activeDocument.layers[i];
     if (layerRef.visible == true) {
       if (isTrueText(layerRef)) {
-        coords += tabs + "public GameObject " + "text_" + layerRef.name + ";" + enter;
+        coords += tabs + "public GameObject " + "text_" + layerRef.name.replace(/\s/g, '') + ";" + enter;
       } else {
         coords += tabs + "public GameObject " + layerRef.name + ";" + enter;
       }

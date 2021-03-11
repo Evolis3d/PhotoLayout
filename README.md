@@ -11,6 +11,7 @@ The script is really a GUI generator and a composer, a custom editor tool that w
 
 The order of the elements is reversed so it matches the one from your PSD document.
 
+
 **Important:** THIS SCRIPT WON'T GENERATE YOUR GRAPHICS. YOU STILL NEED TO EXPORT THEM.
 
 
@@ -37,11 +38,16 @@ The order of the elements is reversed so it matches the one from your PSD docume
 Just run the included **PhotoLayout.jsx** script in Photoshop. Versions CS6 or previous can't show the Settings Dialog window.
 
 When 'Use Layer color-presets' option is turned off, random colors will be used for each element.
+
 When 'Generate Extras' option is turned off, all Layers will be treated as Image elements.
  
 **NOTE:** Ensure to point to your _Project\Assets\Editor_ folder.
 
-Then open Unity3D and execute the Editor script. This will generate the whole Canvas hierarchy and place every item in the Canvas.
+Then open Unity3D. Before doing anything else, ensure you've added all your needed packages from the PackageManager. 
+
+Then execute the Editor script. 
+
+This will generate the whole Canvas hierarchy and place every item in the Canvas.
 
 ### Important! Temporal Fix
 
