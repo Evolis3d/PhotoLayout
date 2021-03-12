@@ -230,13 +230,13 @@ function GenerateElement(miLayer) {
     coords += tabs + "el = new GameObject(" + comillas + miLayer.name + comillas + ", ";
   }
   if (isButton(miLayer)) {
-    coords += "typeof(Button) ";
+    coords += "typeof(Image), typeof(Button) ";
   } else if (isTrueText(miLayer)) {
-    coords += "typeof(TMP_Text) ";
+    coords += "typeof(TextMeshProUGUI) ";
     var alignText = miLayer.textItem.justification;
     var texContents = miLayer.textItem.contents;
   } else if (isText(miLayer)) {
-    coords += "typeof(TMP_Text) ";
+    coords += "typeof(TextMeshProUGUI) ";
   } else {
     coords += "typeof(Image) ";
   }
