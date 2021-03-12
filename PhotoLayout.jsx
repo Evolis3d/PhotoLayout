@@ -225,9 +225,11 @@ function GenerateElement(miLayer) {
   //
   coords += enter;
   if (isTrueText(miLayer)) {
-    coords += tabs + "el = new GameObject(" + comillas + "text_" + miLayer.name.replace(/\s/g, '') + comillas + ", ";
+    var layernam = (miLayer.name).replace(/ /g,'');
+    coords += tabs + "el = new GameObject(" + comillas + "text_" + layernam + comillas + ", ";
   } else {
-    coords += tabs + "el = new GameObject(" + comillas + miLayer.name + comillas + ", ";
+    var layernam = (miLayer.name).replace(/ /g,'');
+    coords += tabs + "el = new GameObject(" + comillas + layernam + comillas + ", ";
   }
   if (isButton(miLayer)) {
     coords += "typeof(Image), typeof(Button) ";
@@ -406,9 +408,11 @@ function GeneraController() {
     layerRef = app.activeDocument.layers[i];
     if (layerRef.visible == true) {
       if (isTrueText(layerRef)) {
-        coords += tabs + "public GameObject " + "text_" + layerRef.name.replace(/\s/g, '') + ";" + enter;
+	var layernam = (layerRef.name).replace(/ /g,'');
+        coords += tabs + "public GameObject " + "text_" + layernam + ";" + enter;
       } else {
-        coords += tabs + "public GameObject " + layerRef.name + ";" + enter;
+	var layernam = (layerRef.name).replace(/ /g,'');
+	coords += tabs + "public GameObject " + layernam + ";" + enter;
       }
     }
   }
@@ -425,7 +429,9 @@ function writeFile(info) {
     f.lineFeed = fileLineFeed;
     f.write(info);
     f.close();
-  } catch (e) {}
+  } catch (e) {
+    alert(e);
+  }
 }
 
 function getLayerColour() {
