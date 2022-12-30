@@ -2,7 +2,8 @@
 
 ### Photoshop → Unity3D exporter scripts for Canvas GUI layout generation.
 
-by **Carlos Lecina**
+### Author
+[☕ Carlos Lecina](https://ko-fi.com/carloslecina)
 
 * * *
 
